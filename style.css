@@ -1,8 +1,9 @@
 :root {
-  --bg: #fafafa;
-  --ink: #111111;
-  --muted: #8a8a8a;
-  --line: #e4e4e4;
+  --bg: #eceef1;        /* soft page backdrop so the card reads */
+  --card: #ffffff;      /* flat white card */
+  --ink: #14171a;
+  --muted: #6b7280;
+  --line: #e6e8eb;      /* hairline borders + dividers */
 }
 
 * {
@@ -26,57 +27,61 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px;
+  padding: 24px;
   -webkit-font-smoothing: antialiased;
 }
 
+/* Flat card */
 .page {
   width: 100%;
-  max-width: 480px;
+  max-width: 460px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 48px 44px;
 }
 
 /* Masthead */
 .masthead {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 }
 
 .wordmark {
-  font-size: clamp(1.6rem, 6vw, 2.1rem);
-  font-weight: 500;
+  font-size: clamp(1.4rem, 5.5vw, 1.85rem);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  /* optical: nudge left to compensate for trailing tracking */
-  text-indent: 0.22em;
+  letter-spacing: 0.18em;
+  text-indent: 0.18em;
 }
 
 .subtitle {
-  margin-top: 14px;
+  margin-top: 12px;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
 }
 
 /* Intro */
 .intro {
   text-align: center;
-  color: #555;
-  font-size: 1.05rem;
+  color: #4b5563;
+  font-size: 1rem;
   line-height: 1.7;
-  margin-bottom: 56px;
+  margin-bottom: 36px;
 }
 
 /* Details */
 .details {
   border-top: 1px solid var(--line);
-  padding-top: 28px;
-  margin-bottom: 48px;
+  padding-top: 26px;
+  margin-bottom: 36px;
 }
 
 .details dl {
   display: grid;
-  gap: 16px;
+  gap: 14px;
 }
 
 .row {
@@ -91,7 +96,7 @@ body {
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
 }
 
 .row dd {
@@ -111,14 +116,14 @@ body {
 }
 
 .register-link {
-  margin-top: 28px;
+  margin-top: 24px;
   text-align: center;
 }
 
 .register-link a {
   color: var(--ink);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   border-bottom: 1px solid var(--line);
   padding-bottom: 2px;
   transition: border-color 0.15s ease;
@@ -131,6 +136,8 @@ body {
 /* Contact */
 .contact {
   text-align: center;
+  border-top: 1px solid var(--line);
+  padding-top: 30px;
 }
 
 .contact-name {
@@ -140,7 +147,7 @@ body {
 
 .contact-title {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-top: 4px;
@@ -161,6 +168,9 @@ body {
 }
 
 @media (max-width: 440px) {
+  .page {
+    padding: 36px 24px;
+  }
   .row {
     flex-direction: column;
     gap: 2px;
