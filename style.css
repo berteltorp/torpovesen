@@ -98,6 +98,18 @@ body {
   text-align: right;
 }
 
+.row dd a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+  transition: border-color 0.15s ease;
+}
+
+.row dd a:hover {
+  border-color: var(--ink);
+}
+
 .register-link {
   margin-top: 28px;
   text-align: center;
