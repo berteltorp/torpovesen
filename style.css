@@ -1,9 +1,8 @@
 :root {
-  --bg: #eceef1;        /* soft page backdrop so the card reads */
-  --card: #ffffff;      /* flat white card */
-  --ink: #14171a;
-  --muted: #6b7280;
-  --line: #e6e8eb;      /* hairline borders + dividers */
+  --bg: #f7f7f5;
+  --ink: #1d201f;
+  --muted: #8a8a84;
+  --line: #e3e3de;
 }
 
 * {
@@ -17,165 +16,91 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco,
+    "Cascadia Code", Consolas, "Liberation Mono", "Courier New", monospace;
   background: var(--bg);
   color: var(--ink);
-  line-height: 1.6;
-  font-weight: 400;
+  line-height: 1.65;
+  font-size: 14px;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 32px;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Flat card */
 .page {
   width: 100%;
-  max-width: 460px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 48px 44px;
+  max-width: 520px;
 }
 
 /* Masthead */
 .masthead {
-  text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 34px;
 }
 
 .wordmark {
-  font-size: clamp(1.4rem, 5.5vw, 1.85rem);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  text-indent: 0.18em;
-}
-
-.subtitle {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 /* Intro */
 .intro {
-  text-align: center;
-  color: #4b5563;
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 36px;
+  color: #54544e;
+  margin-bottom: 34px;
+  max-width: 46ch;
 }
 
-/* Details */
+/* Details — aligned key/value pairs */
 .details {
-  border-top: 1px solid var(--line);
-  padding-top: 26px;
-  margin-bottom: 36px;
+  margin-bottom: 30px;
 }
 
 .details dl {
   display: grid;
-  gap: 14px;
+  gap: 7px;
 }
 
 .row {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
   gap: 16px;
-  font-size: 0.92rem;
+  font-size: 0.85rem;
 }
 
 .row dt {
+  flex: 0 0 92px;
   color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.74rem;
 }
 
 .row dd {
-  text-align: right;
+  flex: 1;
 }
 
-.row dd a {
+a {
   color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 1px;
-  transition: border-color 0.15s ease;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color 0.15s ease;
 }
 
-.row dd a:hover {
-  border-color: var(--ink);
+a:hover {
+  text-decoration-color: var(--ink);
 }
 
-.register-link {
-  margin-top: 24px;
-  text-align: center;
-}
-
-.register-link a {
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 0.84rem;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 2px;
-  transition: border-color 0.15s ease;
-}
-
-.register-link a:hover {
-  border-color: var(--ink);
-}
-
-/* Contact */
-.contact {
-  text-align: center;
-  border-top: 1px solid var(--line);
-  padding-top: 30px;
-}
-
-.contact-name {
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-.contact-title {
-  color: var(--muted);
-  font-size: 0.76rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 4px;
-  margin-bottom: 14px;
-}
-
-.contact a {
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 1rem;
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 2px;
-}
-
-.contact a:hover {
-  color: var(--muted);
-  border-color: var(--muted);
+/* Contact value sits on its own line under the label's email */
+.row dd a[href^="mailto:"] {
+  text-decoration-color: var(--ink);
 }
 
 @media (max-width: 440px) {
-  .page {
-    padding: 36px 24px;
-  }
   .row {
     flex-direction: column;
-    gap: 2px;
+    gap: 0;
   }
-  .row dd {
-    text-align: left;
+  .row dt {
+    flex: none;
   }
 }
